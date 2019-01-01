@@ -1,0 +1,1 @@
+This a ros simulation of an 9 dof , 10 link snake robot.
