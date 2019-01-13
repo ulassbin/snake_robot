@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf2_ros
   urdf
   roslaunch
+  gazebo_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -134,6 +135,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
  add_executable(parser src/parser.cpp)
+ add_executable(move src/move.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -147,7 +149,7 @@ include_directories(
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(parser ${catkin_LIBRARIES})
-
+target_link_libraries(move ${catkin_LIBRARIES})
 
 roslaunch_add_file_check(launch)
 #############

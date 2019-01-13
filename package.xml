@@ -53,11 +53,13 @@
   <build_depend>tf2_ros</build_depend>
   <build_depend>urdf</build_depend>
   <build_depend>roslaunch</build_depend>
+  <build_depend>gazebo_msgs</build_depend>
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>tf2_ros</build_export_depend>
   <build_export_depend>urdf</build_export_depend>
   <build_export_depend>roslaunch</build_export_depend>
   <exec_depend>roscpp</exec_depend>
+  <exec_depend>gazebo_msgs</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
   <exec_depend>urdf</exec_depend>
   <exec_depend>roslaunch</exec_depend>

@@ -13,8 +13,8 @@
   <link name="base_link">
     <inertial>
       <origin xyz=" 0 0 0" rpy="0 0 0" />
-      <mass value="1.0"/>
-      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+      <mass value="1000.0"/>
+      <inertia ixx="5" ixy="5" ixz="5" iyy="5" iyz="5" izz="5"/>
     </inertial>
     <visual>
       <geometry>
@@ -218,7 +218,10 @@
     </collision>
   </link>
 
-  <joint name="joint1" type="continuous">
+  <joint name="joint1" type="continuous" >
+    <gazebo reference="joint1">
+  		<implicitSpringDamper>True</implicitSpringDamper>
+	</gazebo>
     <parent link="base_link"/>
     <child link="link2"/>
     <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
@@ -226,13 +229,19 @@
   </joint>
 
   <joint name="joint2" type="continuous">
+    <gazebo reference="joint2">
+  		<implicitSpringDamper>True</implicitSpringDamper>
+	</gazebo>
     <parent link="link2"/>
     <child link="link3"/>
     <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
     <axis xyz="0 1 0" />
   </joint>
 
-  <joint name="joint3" type="continuous">
+  <joint name="joint3" type="continuous" >
+    <gazebo reference="joint3">
+  		<implicitSpringDamper>True</implicitSpringDamper>
+	</gazebo>
     <parent link="link3"/>
     <child link="link4"/>
     <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
@@ -240,41 +249,59 @@
   </joint>
   
   <joint name="joint4" type="continuous">
+    <gazebo reference="joint4">
+  		<implicitSpringDamper>True</implicitSpringDamper>
+	</gazebo>
     <parent link="link4"/>
     <child link="link5"/>
     <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
     <axis xyz="0 1 0" />
   </joint>
   
-  <joint name="joint5" type="continuous">
+  <joint name="joint5" type="continuous" >
+  	<gazebo reference="joint5">
+  		<implicitSpringDamper>True</implicitSpringDamper>
+	</gazebo>
     <parent link="link5"/>
     <child link="link6"/>
     <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
     <axis xyz="1 0 0" />
   </joint>
 
-  <joint name="joint6" type="continuous">
+  <joint name="joint6" type="continuous" >
+    <gazebo reference="joint6">
+  		<implicitSpringDamper>True</implicitSpringDamper>
+	</gazebo>
     <parent link="link6"/>
     <child link="link7"/>
     <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
     <axis xyz="0 1 0" />
   </joint>
   
-  <joint name="joint7" type="continuous">
+  <joint name="joint7" type="continuous"  >
+  	<gazebo reference="joint7">
+  		<implicitSpringDamper>True</implicitSpringDamper>
+	</gazebo>
     <parent link="link7"/>
     <child link="link8"/>
     <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
     <axis xyz="1 0 0" />
   </joint>
 
-  <joint name="joint8" type="continuous">
+  <joint name="joint8" type="continuous" >
+  	<gazebo reference="joint8">
+  		<implicitSpringDamper>True</implicitSpringDamper>
+	</gazebo>
     <parent link="link8"/>
     <child link="link9"/>
     <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
-    <axis xyz="1 0 0" />
+    <axis xyz="0 1 0" />
   </joint>
 
-  <joint name="joint9" type="continuous">
+  <joint name="joint9" type="continuous" >
+  	<gazebo reference="joint9">
+  		<implicitSpringDamper>True</implicitSpringDamper>
+	</gazebo>
     <parent link="link9"/>
     <child link="link10"/>
     <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
@@ -282,14 +309,14 @@
   </joint>
 
 
-<!--  NOW WE INCLUDE CONTROLS FOR ROS -->
+ <!--  NOW WE INCLUDE CONTROLS FOR ROS -->
+
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/snake_robot</robotNamespace>
     </plugin>
   </gazebo> 
 
-  <!-- transmission -->
   <transmission name="base_to_second_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor1">

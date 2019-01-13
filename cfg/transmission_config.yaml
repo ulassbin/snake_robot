@@ -6,50 +6,49 @@ snake_robot:
   joint1_control:
     type: effort_controllers/JointPositionController
     joint: joint1
-    pid: {p: 15.0, i: 0.1, d: 0.5}
+    pid: {p: 100.0, i: 10, d: 5}
 
   joint2_control:
     type: effort_controllers/JointPositionController
     joint: joint2
-    pid: {p: 15.0, i: 0.1, d: 1.0}
-
+    pid: {p: 100.0, i: 10, d: 5}
 
   joint3_control:
     type: effort_controllers/JointPositionController
     joint: joint3
-    pid: {p: 15.0, i: 0.1, d: 0.5}
+    pid: {p: 100.0, i: 10, d: 5}
 
   joint4_control:
     type: effort_controllers/JointPositionController
     joint: joint4
-    pid: {p: 15.0, i: 0.1, d: 0.5}
+    pid: {p: 100.0, i: 10, d: 5}
 
 
   joint5_control:
     type: effort_controllers/JointPositionController
     joint: joint5
-    pid: {p: 15.0, i: 0.1, d: 0.5}
+    pid: {p: 100.0, i: 10, d: 5}
 
 
   joint6_control:
     type: effort_controllers/JointPositionController
     joint: joint6
-    pid: {p: 15.0, i: 0.1, d: 0.5}
+    pid: {p: 100.0, i: 10, d: 5}
 
 
   joint7_control:
     type: effort_controllers/JointPositionController
     joint: joint7
-    pid: {p: 15.0, i: 0.1, d: 0.5}
+    pid: {p: 100.0, i: 10, d: 5}
 
   
   joint8_control:
     type: effort_controllers/JointPositionController
     joint: joint8
-    pid: {p: 15.0, i: 0.1, d: 0.5}
+    pid: {p: 100.0, i: 10, d: 5}
 
   
   joint9_control:
     type: effort_controllers/JointPositionController
     joint: joint9
-    pid: {p: 15.0, i: 0.1, d: 0.5}
+    pid: {p: 100.0, i: 10, d: 5}
