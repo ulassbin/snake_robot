@@ -8,6 +8,7 @@ project(snake_robot)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  dynamic_reconfigure
   roscpp
   tf2_ros
   urdf
@@ -94,7 +95,10 @@ find_package(catkin REQUIRED COMPONENTS
 #   cfg/DynReconf1.cfg
 #   cfg/DynReconf2.cfg
 # )
-
+generate_dynamic_reconfigure_options(
+   cfg/Params.cfg
+#   cfg/DynReconf2.cfg
+)
 ###################################
 ## catkin specific configuration ##
 ###################################
