@@ -6,49 +6,96 @@ snake_robot:
   joint1_control:
     type: effort_controllers/JointPositionController
     joint: joint1
-    pid: {p: 100.0, i: 10, d: 5}
+    pid: {p: 1000.0, i: 100, d: 50}
 
   joint2_control:
     type: effort_controllers/JointPositionController
     joint: joint2
-    pid: {p: 100.0, i: 10, d: 5}
+    pid: {p: 1000.0, i: 100, d: 50}
+
 
   joint3_control:
     type: effort_controllers/JointPositionController
     joint: joint3
-    pid: {p: 100.0, i: 10, d: 5}
+    pid: {p: 1000.0, i: 100, d: 50}
 
   joint4_control:
     type: effort_controllers/JointPositionController
     joint: joint4
-    pid: {p: 100.0, i: 10, d: 5}
+    pid: {p: 1000.0, i: 100, d: 50}
+
 
 
   joint5_control:
     type: effort_controllers/JointPositionController
     joint: joint5
-    pid: {p: 100.0, i: 10, d: 5}
+    pid: {p: 1000.0, i: 100, d: 50}
+
 
 
   joint6_control:
     type: effort_controllers/JointPositionController
     joint: joint6
-    pid: {p: 100.0, i: 10, d: 5}
+    pid: {p: 1000.0, i: 100, d: 50}
+
 
 
   joint7_control:
     type: effort_controllers/JointPositionController
     joint: joint7
-    pid: {p: 100.0, i: 10, d: 5}
+    pid: {p: 1000.0, i: 100, d: 50}
+
 
   
   joint8_control:
     type: effort_controllers/JointPositionController
     joint: joint8
-    pid: {p: 100.0, i: 10, d: 5}
+    pid: {p: 1000.0, i: 100, d: 50}
+
 
   
   joint9_control:
     type: effort_controllers/JointPositionController
     joint: joint9
-    pid: {p: 100.0, i: 10, d: 5}
+    pid: {p: 1000.0, i: 100, d: 50}
+
+
+  joint10_control:
+    type: effort_controllers/JointPositionController
+    joint: joint10
+    pid: {p: 1000.0, i: 100, d: 50}
+
+
+
+  joint11_control:
+    type: effort_controllers/JointPositionController
+    joint: joint11
+    pid: {p: 1000.0, i: 100, d: 50}
+
+
+  
+  joint12_control:
+    type: effort_controllers/JointPositionController
+    joint: joint12
+    pid: {p: 1000.0, i: 100, d: 50}
+
+
+  
+  joint13_control:
+    type: effort_controllers/JointPositionController
+    joint: joint13
+    pid: {p: 1000.0, i: 100, d: 50}
+
+
+  joint14_control:
+    type: effort_controllers/JointPositionController
+    joint: joint14
+    pid: {p: 1000.0, i: 100, d: 50}
+
+
+
+  joint15_control:
+    type: effort_controllers/JointPositionController
+    joint: joint15
+    pid: {p: 1000.0, i: 100, d: 50}
+

@@ -9,35 +9,36 @@
   <material name="gray">
     <color rgba="0.0 0.0 0.0 1"/>
   </material>
-
+<!--
+  <box size="0.5 0.1 0.1">
+-->
   <link name="base_link">
     <inertial>
-      <origin xyz=" 0 0 0" rpy="0 0 0" />
-      <mass value="1000.0"/>
-      <inertia ixx="5" ixy="5" ixz="5" iyy="5" iyz="5" izz="5"/>
+      <origin xyz=" 0 0 0" rpy="90 0 0" />
+      <mass value="1.0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
     </inertial>
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
       <material name="blue"/>
     </visual>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
 
   <gazebo reference="base_link">
-    <material>Gazebo/Orange</material>
+    <material>Gazebo/Blue</material>
   </gazebo>
-  
   </link>
 
   <link name="link2">
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
       <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
       <material name="gray"/>
@@ -49,7 +50,7 @@
     </inertial>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
 
@@ -61,7 +62,7 @@
   <link name="link3">
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
       <material name="blue"/>
       <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
@@ -73,7 +74,7 @@
     </inertial>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
   </link>
@@ -81,7 +82,7 @@
   <link name="link4">
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     <material name="gray"/>
     <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
@@ -93,7 +94,7 @@
     </inertial>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
   </link>
@@ -101,7 +102,7 @@
   <link name="link5">
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
       <material name="blue"/>
       <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
@@ -113,7 +114,7 @@
     </inertial>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
   </link>
@@ -121,7 +122,7 @@
     <link name="link6">
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
       <material name="gray"/>
       <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
@@ -133,7 +134,7 @@
     </inertial>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
   </link>
@@ -141,7 +142,7 @@
   <link name="link7">
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
       <material name="blue"/>
       <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
@@ -153,7 +154,7 @@
     </inertial>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
   </link>
@@ -161,7 +162,7 @@
   <link name="link8">
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
       <material name="gray"/>
       <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
@@ -173,7 +174,7 @@
     </inertial>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
   </link>
@@ -181,7 +182,7 @@
   <link name="link9">
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
       <material name="blue"/>
       <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
@@ -193,7 +194,7 @@
     </inertial>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
   </link>
@@ -201,7 +202,7 @@
   <link name="link10">
     <visual>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
       <material name="gray"/>
       <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
@@ -213,10 +214,131 @@
     </inertial>
     <collision>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <box size="0.1 0.1 0.5"/>
       </geometry>
     </collision>
   </link>
+
+  <link name="link11">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+      <material name="blue"/>
+      <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
+    </visual>
+    <inertial>
+      <origin xyz=" 0 0 0" rpy="0 0 0" />
+      <mass value="1.0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+    </collision>
+  </link>
+
+    <link name="link12">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
+    </visual>
+    <inertial>
+      <origin xyz=" 0 0 0" rpy="0 0 0" />
+      <mass value="1.0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link13">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+      <material name="blue"/>
+      <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
+    </visual>
+    <inertial>
+      <origin xyz=" 0 0 0" rpy="0 0 0" />
+      <mass value="1.0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <link name="link14">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
+    </visual>
+    <inertial>
+      <origin xyz=" 0 0 0" rpy="0 0 0" />
+      <mass value="1.0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link15">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+      <material name="blue"/>
+      <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
+    </visual>
+    <inertial>
+      <origin xyz=" 0 0 0" rpy="0 0 0" />
+      <mass value="1.0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="link16">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz=" 0 0 0.25" rpy = "0 0 0" />
+    </visual>
+    <inertial>
+      <origin xyz=" 0 0 0" rpy="0 0 0" />
+      <mass value="1.0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+    </collision>
+  </link>
+
 
   <joint name="joint1" type="continuous" >
     <gazebo reference="joint1">
@@ -308,6 +430,68 @@
     <axis xyz="1 0 0" />
   </joint>
 
+  <joint name="joint10" type="continuous" >
+    <gazebo reference="joint9">
+      <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+    <parent link="link10"/>
+    <child link="link11"/>
+    <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+    <joint name="joint11" type="continuous" >
+    <gazebo reference="joint11">
+      <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+    <parent link="link11"/>
+    <child link="link12"/>
+    <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
+    <axis xyz="1 0 0" />
+  </joint>
+  
+  <joint name="joint12" type="continuous"  >
+    <gazebo reference="joint12">
+      <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+    <parent link="link12"/>
+    <child link="link13"/>
+    <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <joint name="joint13" type="continuous" >
+    <gazebo reference="joint13">
+      <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+    <parent link="link13"/>
+    <child link="link14"/>
+    <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
+    <axis xyz="1 0 0" />
+  </joint>
+
+  <joint name="joint14" type="continuous" >
+    <gazebo reference="joint14">
+      <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+    <parent link="link14"/>
+    <child link="link15"/>
+    <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <joint name="joint15" type="continuous" >
+    <gazebo reference="joint15">
+      <implicitSpringDamper>True</implicitSpringDamper>
+  </gazebo>
+    <parent link="link15"/>
+    <child link="link16"/>
+    <origin xyz=" 0 0 0.5" rpy = "0 0 0" />
+    <axis xyz="1 0 0" />
+  </joint>
+
+
+
 
  <!--  NOW WE INCLUDE CONTROLS FOR ROS -->
 
@@ -320,7 +504,7 @@
   <transmission name="base_to_second_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor1">
-      <nechanicalReduction>1</nechanicalReduction>
+      <mechanicalReduction>100</mechanicalReduction>
     </actuator>
     <joint name="joint1">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -330,7 +514,7 @@
   <transmission name="second_to_third_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor2">
-      <nechanicalReduction>1</nechanicalReduction>
+      <mechanicalReduction>100</mechanicalReduction>
     </actuator>
     <joint name="joint2">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -342,7 +526,7 @@
   <transmission name="third_to_fourth_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor3">
-      <nechanicalReduction>1</nechanicalReduction>
+      <mechanicalReduction>100</mechanicalReduction>
     </actuator>
     <joint name="joint3">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -352,7 +536,7 @@
   <transmission name="fourth_to_fifth_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor4">
-      <nechanicalReduction>1</nechanicalReduction>
+      <mechanicalReduction>100</mechanicalReduction>
     </actuator>
     <joint name="joint4">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -362,7 +546,7 @@
   <transmission name="fifth_to_sixth_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor5">
-      <nechanicalReduction>1</nechanicalReduction>
+      <mechanicalReduction>100</mechanicalReduction>
     </actuator>
     <joint name="joint5">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -372,7 +556,7 @@
   <transmission name="sixth_to_seventh_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor6">
-      <nechanicalReduction>1</nechanicalReduction>
+      <mechanicalReduction>100</mechanicalReduction>
     </actuator>
     <joint name="joint6">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -383,7 +567,7 @@
   <transmission name="seventh_to_eight_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor7">
-      <nechanicalReduction>1</nechanicalReduction>
+      <mechanicalReduction>100</mechanicalReduction>
     </actuator>
     <joint name="joint7">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
@@ -393,22 +577,83 @@
   <transmission name="eigth_to_nineth_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor8">
-      <nechanicalReduction>1</nechanicalReduction>
+      <mechanicalReduction>100</mechanicalReduction>
     </actuator>
     <joint name="joint8">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
 
-  <transmission name="nineth_to_tenth_trans">
+  <transmission name="trans9">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="motor9">
-      <nechanicalReduction>1</nechanicalReduction>
+      <mechanicalReduction>100</mechanicalReduction>
     </actuator>
     <joint name="joint9">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>
+
+  <transmission name="trans10">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor10">
+      <mechanicalReduction>100</mechanicalReduction>
+    </actuator>
+    <joint name="joint10">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="trans11">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor11">
+      <mechanicalReduction>100</mechanicalReduction>
+    </actuator>
+    <joint name="joint11">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="trans12">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor12">
+      <mechanicalReduction>100</mechanicalReduction>
+    </actuator>
+    <joint name="joint12">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+    <transmission name="trans13">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor13">
+      <mechanicalReduction>100</mechanicalReduction>
+    </actuator>
+    <joint name="joint13">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="trans14">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor14">
+      <mechanicalReduction>100</mechanicalReduction>
+    </actuator>
+    <joint name="joint14">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="trans15">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor15">
+      <mechanicalReduction>100</mechanicalReduction>
+    </actuator>
+    <joint name="joint15">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
 
 
 </robot>

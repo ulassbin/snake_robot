@@ -6,9 +6,9 @@
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 	</include>
 	
-	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" args="-param robot_description -urdf -model snake_robot" />
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" args="-param robot_description -urdf -model snake_robot -P 1.52 -z 1" />
 
-	<node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/snake_robot" args="joint1_control joint2_control joint3_control joint4_control joint5_control joint6_control joint7_control joint8_control  joint9_control joint_state_controller --shutdown-timeout 3">
+	<node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/snake_robot" args="joint1_control joint2_control joint3_control joint4_control joint5_control joint6_control joint7_control joint8_control  joint9_control joint10_control joint11_control joint12_control joint13_control joint14_control joint15_control joint_state_controller --shutdown-timeout 3">
 		<remap from="/joint_states" to="/snake_robot/joint_states" />
 	</node>
 </launch>

@@ -10,75 +10,338 @@
 #include <gazebo_msgs/GetLinkState.h>
 #include <gazebo_msgs/SetLinkState.h>
 #include <gazebo_msgs/SetModelConfiguration.h>
-
+#include <std_msgs/Float64.h>
 
 #include <cstdlib>
 
+std::vector<double> angles;
 
-void alignrobot(ros::ServiceClient aClient,std::vector<double> angles) {
-  gazebo_msgs::SetModelConfiguration initConfig;
-  std::string base = "joint";
-  std::string tempstring;
-  initConfig.request.model_name = "snake_robot";
-  std::vector< std::basic_string<char>> names;
-  //names.push_back(te);
-  std::vector<std::string> testingstring;
-  for(int i = 0;i < 9; i++) {
-  	tempstring = base;
-  	tempstring.append(std::to_string(i+1));
-  	testingstring.push_back(tempstring);
+void alignrobot(std::vector<ros::Publisher> aContainer, std::vector<double> angles) {
+  std_msgs::Float64 temp;
+  for(int i = 0; i < 15; i++) {
+  	temp.data = angles[i];
+    aContainer[i].publish(temp);
   }
-  std::vector<double> anglealloc;
-  ros::service::waitForService("gazebo/set_model_configuration");
-  initConfig.request.joint_names = testingstring;
-  initConfig.request.joint_positions = angles;
-  aClient.call(initConfig);
-  return;
 }
+
+void moveForward(std::vector<ros::Publisher> aContainer) {
+  ros::Rate extractRate(100);
+  ros::Rate pushRate(300);
+  int myCount = 150;
+  for(int i = 0; i<myCount; i++) {
+  	angles[1] = 0.001*i;
+  	angles[5] = -0.001*i;
+  	angles[9] = 0.002*i;
+  	angles[13] = -0.003*i;
+
+  	alignrobot(aContainer,angles);
+  	extractRate.sleep();
+  	ros::spinOnce();
+  }
+
+
+  for(int i = 0; i<myCount*2; i++) {
+  	angles[1] = 0.001*myCount - 0.001*i;
+  	angles[5] = -0.001*myCount + 0.001*i;
+  	angles[9] = 0.002*myCount - 0.002*i;
+  	angles[13] = -0.003*myCount + 0.003*i;
+
+  	alignrobot(aContainer,angles);
+  	if(i<myCount)
+  		pushRate.sleep();
+  	else
+  		extractRate.sleep();
+  	ros::spinOnce();
+  }
+   for(int i = 0; i<myCount; i++) {
+  	angles[1] = -0.001*myCount + 0.001*i;
+  	angles[5] = +0.001*myCount - 0.001*i;
+  	angles[9] = -0.002*myCount + 0.002*i;
+  	angles[13] = 0.003*myCount - 0.003*i;
+
+  	alignrobot(aContainer,angles);
+  	pushRate.sleep();
+  	ros::spinOnce();
+  }
+
+}
+
+void moveForward2(std::vector<ros::Publisher> aContainer) {
+  //std::vector<double> angles;
+  ros::Rate extractRate(1000);
+  ros::Rate pushRate(3000);
+  int myCount = 1507;
+  for(int i = 0; i<myCount; i++) {
+  	angles[0] = 0.001*i;
+  	angles[2] = -0.001*i;
+  	angles[4] = -0.001*i;
+  	angles[6] =	0.001*i;
+  	angles[8] = 0.001*i;
+  	angles[10] = -0.001*i;
+  	angles[12] = -0.001*i;
+  	angles[14] = 0.001*i;
+  	alignrobot(aContainer,angles);
+  	extractRate.sleep();
+  	ros::spinOnce();
+  }
+  // for(int i = 0; i < myCount; i++)  {
+  // 	angles[0] = myCount*0.001-0.001*i;
+  // 	angles[2] = -myCount*0.001+0.001*i;
+  // 	angles[4] = -myCount*0.001+0.001*i;
+  // 	angles[6] = myCount*0.001-0.001*i;
+  // 	// if(j == 2) {
+  // 	//     angles[6] = myCount*0.001-0.001*i;
+  // 	//     angles[8] = myCount*0.001-0.001*i;
+  // 	//   }
+  // 	//   if(j == 3) {
+  // 	//     angles[10] = -myCount*0.001+0.001*i;
+  // 	//     angles[12] = -myCount*0.001+0.001*i;
+  // 	//   }
+  // 	//   if(j == 4)
+  // 	//     angles[14] = myCount*0.001-0.001*i;
+  // 	alignrobot(aContainer,angles);
+  // 	if(i<myCount)
+  // 	  pushRate.sleep();
+  // 	else
+  // 	  extractRate.sleep();
+  // 	ros::spinOnce();
+  // }
+  // for(int i=0; i<15;i++)  {
+  // 	std::cout<<"Angle "<<i<<" is "<<angles[i]<<std::endl;
+  	
+  // }
+  // std::cout<<"myCount is "<<myCount<<std::endl;
+  // int tempval;
+
+  for(int i = 0; i<myCount; i++) {
+  	//std::cout<<i<<std::endl;
+  	angles[0] = angles[0] - (0.001);
+  	angles[2] = angles[2] + (0.001);
+  	//angles[8] = 10.001*myCount-0.001*i;
+  	// angles[8] = 0.001*myCount-0.001*i;
+  	alignrobot(aContainer,angles);
+  	if(i<myCount)
+  	  pushRate.sleep();
+  	else
+  	  extractRate.sleep();
+  	ros::spinOnce();
+  }
+
+  for(int i = 0; i<myCount; i++) {
+  	//std::cout<<i<<std::endl;
+  	angles[0] = angles[0] - (0.001);
+  	angles[2] = angles[2] + (0.001);
+  	angles[4] = angles[4] + (0.001);
+  	angles[6] = angles[6] - (0.001);
+  	//angles[8] = 10.001*myCount-0.001*i;
+  	// angles[8] = 0.001*myCount-0.001*i;
+  	alignrobot(aContainer,angles);
+  	if(i<myCount)
+  	  pushRate.sleep();
+  	else
+  	  extractRate.sleep();
+  	ros::spinOnce();
+  }
+  
+  for(int i = 0; i<myCount; i++) {
+  	//std::cout<<i<<std::endl;
+  	//angles[0] = angles[0] - (0.001);
+  	//angles[2] = angles[2] + (0.001);
+  	angles[4] = angles[4] + (0.001);
+  	angles[6] = angles[6] - (0.001);
+  	angles[8] = angles[8] - (0.001);
+  	angles[10] = angles[10] + (0.001);
+  	//angles[8] = 10.001*myCount-0.001*i;
+  	// angles[8] = 0.001*myCount-0.001*i;
+  	alignrobot(aContainer,angles);
+  	if(i<myCount)
+  	  pushRate.sleep();
+  	else
+  	  extractRate.sleep();
+  	ros::spinOnce();
+  }
+  for(int i = 0; i<myCount; i++) {
+  	//std::cout<<i<<std::endl;
+  	//angles[0] = angles[0] - (0.001);
+  	//angles[2] = angles[2] + (0.001);
+  	angles[8] = angles[8] - (0.001);
+  	angles[10] = angles[10] + (0.001);
+  	angles[12] = angles[12] + (0.001);
+  	angles[14] = angles[14] - (0.001);
+  	//angles[8] = 10.001*myCount-0.001*i;
+  	// angles[8] = 0.001*myCount-0.001*i;
+  	alignrobot(aContainer,angles);
+  	if(i<myCount)
+  	  pushRate.sleep();
+  	else
+  	  extractRate.sleep();
+  	ros::spinOnce();
+  }
+
+  for(int i = 0; i<myCount; i++) {
+  	//std::cout<<i<<std::endl;
+  	//angles[0] = angles[0] - (0.001);
+  	//angles[2] = angles[2] + (0.001);
+  	angles[12] = angles[12] + (0.001);
+  	angles[14] = angles[14] - (0.001);
+  	//angles[8] = 10.001*myCount-0.001*i;
+  	// angles[8] = 0.001*myCount-0.001*i;
+  	alignrobot(aContainer,angles);
+  	if(i<myCount)
+  	  pushRate.sleep();
+  	else
+  	  extractRate.sleep();
+  	ros::spinOnce();
+  }
+
+  for(int i = 0; i<myCount; i++) {
+  	//std::cout<<i<<std::endl;
+  	angles[0] = angles[0] + (0.001);
+  	angles[2] = angles[2] - (0.001);
+  	//angles[12] = angles[12] + (0.001);
+  	//angles[14] = angles[14] - (0.001);
+  	//angles[8] = 10.001*myCount-0.001*i;
+  	// angles[8] = 0.001*myCount-0.001*i;
+  	alignrobot(aContainer,angles);
+  	if(i<myCount)
+  	  pushRate.sleep();
+  	else
+  	  extractRate.sleep();
+  	ros::spinOnce();
+  }
+  for(int i = 0; i<myCount; i++) {
+  	//std::cout<<i<<std::endl;
+  	angles[0] = angles[0] + (0.001);
+  	angles[2] = angles[2] - (0.001);
+  	angles[4] = angles[4] - (0.002);
+  	angles[6] = angles[6] + (0.002);
+  	angles[8] = angles[8] + (0.001);
+  	angles[10] = angles[10] - 0.001;
+  	alignrobot(aContainer,angles);
+  	if(i<myCount)
+  	  pushRate.sleep();
+  	else
+  	  extractRate.sleep();
+  	ros::spinOnce();
+  }
+    for(int i = 0; i<myCount; i++) {
+  	//std::cout<<i<<std::endl;
+  	angles[8] = angles[8] + (0.001);
+  	angles[10] = angles[10] - 0.001;
+  	angles[12] = angles[12] - (0.002);
+  	angles[14] = angles[14] + 0.002;
+  	alignrobot(aContainer,angles);
+  	if(i<myCount)
+  	  pushRate.sleep();
+  	else
+  	  extractRate.sleep();
+  	ros::spinOnce();
+  }
+
+ //  for(int i = 0; i < myCount; i++)  {
+ //  	angles[0] = +0.001*i;
+ //  	angles[2] = -0.001*i;
+ //  	angles[4] = -myCount*0.001+0.001*i;
+	// angles[6] = myCount*0.001-0.001*i;
+ //  	// if(j == 2) {
+ //  	//     angles[6] = myCount*0.001-0.001*i;
+ //  	//     angles[8] = myCount*0.001-0.001*i;
+ //  	//   }
+ //  	//   if(j == 3) {
+ //  	//     angles[10] = -myCount*0.001+0.001*i;
+ //  	//     angles[12] = -myCount*0.001+0.001*i;
+ //  	//   }
+ //  	//   if(j == 4)
+ //  	//     angles[14] = myCount*0.001-0.001*i;
+ //  	alignrobot(aContainer,angles);
+ //  	if(i<myCount)
+ //  	  pushRate.sleep();
+ //  	else
+ //  	  extractRate.sleep();
+ //  	ros::spinOnce();
+ //  }
+
+  // for(int i = 0; i<myCount*2; i++) {
+  // 	angles[0] = 0.0;
+  // 	angles[8] = -0.001*myCount + 0.001*i;
+  // 	angles[10] = 0.001*myCount - 0.001*i;
+  // 	angles[14] = -0.0;
+
+  // 	alignrobot(aContainer,angles);
+  // 	if(i<myCount)
+  // 		pushRate.sleep();
+  // 	else
+  // 		extractRate.sleep();
+  // 	ros::spinOnce();
+  // }
+  //  for(int i = 0; i<myCount; i++) {
+  // 	angles[0] = -0.0;
+  // 	angles[8] = +0.001*myCount - 0.001*i;
+  // 	angles[10] = -0.001*myCount + 0.001*i;
+  // 	angles[14] = 0.0;
+  // 	alignrobot(aContainer,angles);
+  // 	pushRate.sleep();
+  // 	ros::spinOnce();
+  // }
+
+}
+
+
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "robot_motion_client");
 
 
   ros::NodeHandle n;
-  gazebo_msgs::GetLinkState base_link_state;
-  gazebo_msgs::SetLinkState base_link_new_state;
-  gazebo_msgs::SetModelConfiguration jointConfig;
-  ros::service::waitForService("gazebo/get_link_state");
-  ros::ServiceClient gls_srv = n.serviceClient<gazebo_msgs::GetLinkState>("gazebo/get_link_state");
-  ros::ServiceClient sls_srv = n.serviceClient<gazebo_msgs::SetLinkState>("gazebo/set_link_state");
-  ros::ServiceClient joint_srv = n.serviceClient<gazebo_msgs::SetModelConfiguration>("gazebo/set_model_configuration");
-  ros::Rate myrate(2);
-  double xstep = 0.01;
 
-  std::string base = "joint";
-  std::string tempstring;
-  //Now first align the robot
-  std::vector<double> angles;
-  for(int i=0;i<9;i++)
+  ros::Publisher pub1 = n.advertise<std_msgs::Float64> ("snake_robot/joint1_control/command", 5);
+  ros::Publisher pub2 = n.advertise<std_msgs::Float64> ("snake_robot/joint2_control/command", 5);
+  ros::Publisher pub3 = n.advertise<std_msgs::Float64> ("snake_robot/joint3_control/command", 5);
+  ros::Publisher pub4 = n.advertise<std_msgs::Float64> ("snake_robot/joint4_control/command", 5);
+  ros::Publisher pub5 = n.advertise<std_msgs::Float64> ("snake_robot/joint5_control/command", 5);
+  ros::Publisher pub6 = n.advertise<std_msgs::Float64> ("snake_robot/joint6_control/command", 5);
+  ros::Publisher pub7 = n.advertise<std_msgs::Float64> ("snake_robot/joint7_control/command", 5);
+  ros::Publisher pub8 = n.advertise<std_msgs::Float64> ("snake_robot/joint8_control/command", 5);
+  ros::Publisher pub9 = n.advertise<std_msgs::Float64> ("snake_robot/joint9_control/command", 5);
+  ros::Publisher pub10 = n.advertise<std_msgs::Float64> ("snake_robot/joint10_control/command", 5);
+  ros::Publisher pub11 = n.advertise<std_msgs::Float64> ("snake_robot/joint11_control/command", 5);
+  ros::Publisher pub12 = n.advertise<std_msgs::Float64> ("snake_robot/joint12_control/command", 5);
+  ros::Publisher pub13 = n.advertise<std_msgs::Float64> ("snake_robot/joint13_control/command", 5);
+  ros::Publisher pub14 = n.advertise<std_msgs::Float64> ("snake_robot/joint14_control/command", 5);
+  ros::Publisher pub15 = n.advertise<std_msgs::Float64> ("snake_robot/joint15_control/command", 5);
+
+  std::vector<ros::Publisher> pubContainer;
+  pubContainer.push_back(pub1);
+  pubContainer.push_back(pub2);
+  pubContainer.push_back(pub3);
+  pubContainer.push_back(pub4);
+  pubContainer.push_back(pub5);
+  pubContainer.push_back(pub6);
+  pubContainer.push_back(pub7);
+  pubContainer.push_back(pub8);
+  pubContainer.push_back(pub9);
+  pubContainer.push_back(pub10);
+  pubContainer.push_back(pub11);
+  pubContainer.push_back(pub12);
+  pubContainer.push_back(pub13);
+  pubContainer.push_back(pub14);
+  pubContainer.push_back(pub15);
+  ros::Rate speed(2);
+  for(int i=0; i<15; i++) {
   	angles.push_back(0);
-  alignrobot(joint_srv,angles);
-  while(ros::ok()) {
-  	for(int i = 0; i<9; i++)  {
-  		angles[i] = angles[i]+0.001;
-    }
-  	alignrobot(joint_srv,angles);
-	base_link_state.request.link_name ="base_link" ;
-	base_link_state.request.reference_frame ="link" ;
-	if (gls_srv.call(base_link_state)) {
-	  ROS_INFO_STREAM(base_link_state.response);
-	  if(base_link_state.response.success) {
-	    base_link_new_state.request.link_state = base_link_state.response.link_state;
-      	base_link_new_state.request.link_state.pose.position.x = base_link_new_state.request.link_state.pose.position.x + xstep;
-      }
-	} else {
-	  continue;
-	}
-	if(sls_srv.call(base_link_new_state))  {
-		ROS_INFO("Success");
-	}
-    myrate.sleep();
-    ros::spinOnce();
   }
+  // moveForward2(pubContainer);
+  // while(ros::ok()) {
+  // 	int k = 5;
+  // }
+  while(ros::ok())  {
+  	//moveForward(pubContainer);
+  	//speed.sleep();
+  	ros::spinOnce();
+  	moveForward2(pubContainer);
+  	speed.sleep();
+  	ros::spinOnce();
+  }
+
   return 0;
 }
